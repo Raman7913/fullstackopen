@@ -4,7 +4,7 @@ participant user
 participant browser
 participant server
 
-    user->>browser:
+    user->>browser:write note on input and submit it
     Note right of browser: browser gets the submitted information and prepares to send it to the server
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
