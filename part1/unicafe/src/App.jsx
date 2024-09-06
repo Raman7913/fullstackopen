@@ -1,25 +1,36 @@
 import { useState } from "react";
 
 function Statistics(props) {
+    if (props.total > 0) {
+        return (
+            <>
+                <h1>statistics</h1>
+
+                <p>good {props.good}</p>
+                <p>neutral {props.neutral}</p>
+                <p>bad {props.bad}</p>
+                <p>all {props.total}</p>
+                <p>
+                    average{" "}
+                    {props.total > 0
+                        ? (props.good * 1 +
+                              props.neutral * 0 +
+                              props.bad * -1) /
+                          props.total
+                        : 0}
+                </p>
+                <p>
+                    positive{" "}
+                    {`${
+                        props.total > 0 ? (props.good * 100) / props.total : 0
+                    }%`}
+                </p>
+            </>
+        );
+    }
     return (
         <>
-            <h1>statistics</h1>
-
-            <p>good {props.good}</p>
-            <p>neutral {props.neutral}</p>
-            <p>bad {props.bad}</p>
-            <p>all {props.total}</p>
-            <p>
-                average{" "}
-                {props.total > 0
-                    ? (props.good * 1 + props.neutral * 0 + props.bad * -1) /
-                      props.total
-                    : 0}
-            </p>
-            <p>
-                positive{" "}
-                {`${props.total > 0 ? (props.good * 100) / props.total : 0}%`}
-            </p>
+            <p>No feedback given</p>
         </>
     );
 }
