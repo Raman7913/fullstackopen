@@ -4,7 +4,8 @@ function StatisticsLine(props) {
     return (
         <>
             <tr>
-                <td>{props.text}</td> <td>{props.value}</td>
+                <td>{props.text}</td>
+                <td>{props.value}</td>
             </tr>
         </>
     );
@@ -16,29 +17,31 @@ function Statistics(props) {
             <>
                 <h1>statistics</h1>
                 <table border="1">
-                    <StatisticsLine text="good" value={props.good} />
-                    <StatisticsLine text="neutral" value={props.neutral} />
-                    <StatisticsLine text="bad" value={props.bad} />
-                    <StatisticsLine text="total" value={props.total} />
-                    <StatisticsLine
-                        text="average"
-                        value={
-                            props.total > 0
-                                ? (props.good * 1 +
-                                      props.neutral * 0 +
-                                      props.bad * -1) /
-                                  props.total
-                                : 0
-                        }
-                    />
-                    <StatisticsLine
-                        text="positive"
-                        value={`${
-                            props.total > 0
-                                ? (props.good * 100) / props.total
-                                : 0
-                        }%`}
-                    />
+                    <tbody>
+                        <StatisticsLine text="good" value={props.good} />
+                        <StatisticsLine text="neutral" value={props.neutral} />
+                        <StatisticsLine text="bad" value={props.bad} />
+                        <StatisticsLine text="total" value={props.total} />
+                        <StatisticsLine
+                            text="average"
+                            value={
+                                props.total > 0
+                                    ? (props.good * 1 +
+                                          props.neutral * 0 +
+                                          props.bad * -1) /
+                                      props.total
+                                    : 0
+                            }
+                        />
+                        <StatisticsLine
+                            text="positive"
+                            value={`${
+                                props.total > 0
+                                    ? (props.good * 100) / props.total
+                                    : 0
+                            }%`}
+                        />
+                    </tbody>
                 </table>
             </>
         );
