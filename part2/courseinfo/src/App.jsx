@@ -1,3 +1,5 @@
+import Course from "./Course.jsx";
+
 const App = () => {
     const courses = [
         {
@@ -48,19 +50,7 @@ const App = () => {
         <>
             <h1>Web development curriculum</h1>
             {courses.map((course) => (
-                <div key={course.id}>
-                    <h2>{course.name}</h2>
-                    {course.parts.map((part) => (
-                        <p key={part.id}>{`${part.name} ${part.exercises}`}</p>
-                    ))}
-                    <h3>
-                        total of{" "}
-                        {course.parts.reduce((sum, part) => {
-                            return part.exercises + sum;
-                        }, 0)}{" "}
-                        exercises
-                    </h3>
-                </div>
+                <Course key={course.id} course={course}></Course>
             ))}
         </>
     );
